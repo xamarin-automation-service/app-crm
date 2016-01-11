@@ -72,7 +72,7 @@ namespace XamarinCRM.UITest
         {
             if (OnAndroid)
             {
-                app.ScrollDownTo("Phone");
+                app.ScrollDownTo("Info");
             }
             if (OniOS)
                 app.Tap(ContactTab);

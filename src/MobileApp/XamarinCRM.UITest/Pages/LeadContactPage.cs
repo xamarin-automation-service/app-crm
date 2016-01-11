@@ -21,7 +21,7 @@ namespace XamarinCRM.UITest
         readonly Query ContactList;
 
         public LeadContactPage(IApp app, Platform platform)
-            : base(app, platform, "Phone", "Phone")
+            : base(app, platform, "Info", "Phone")
         {
             if (OnAndroid)
             {
@@ -89,13 +89,14 @@ namespace XamarinCRM.UITest
             app.EnterText(LastNameField, lastName);
             app.PressEnter();
 
+            app.ScrollDownTo(PhoneField);
             app.EnterText(PhoneField, phone);
             app.DismissKeyboard();
 
             app.EnterText(EmailField, email);
             app.PressEnter();
 
-            app.ScrollDownTo("Address");
+            app.ScrollDownTo(AddressField);
             app.EnterText(AddressField, address);
             app.PressEnter();
 
