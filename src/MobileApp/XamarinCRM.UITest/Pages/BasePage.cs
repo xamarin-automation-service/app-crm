@@ -10,6 +10,8 @@ namespace XamarinCRM.UITest
         protected readonly IApp app;
         protected readonly bool OnAndroid;
         protected readonly bool OniOS;
+        protected Func<AppQuery, AppQuery> Trait;
+
 
         protected BasePage(IApp app, Platform platform)
         {
@@ -23,9 +25,11 @@ namespace XamarinCRM.UITest
             : this(app, platform)
         {
             if (OnAndroid)
-                Assert.DoesNotThrow(() => app.WaitForElement(androidTrait), "Unable to verify on page: " + this.GetType().Name);
+                Trait = androidTrait;
             if (OniOS)
-                Assert.DoesNotThrow(() => app.WaitForElement(iOSTrait), "Unable to verify on page: " + this.GetType().Name);
+                Trait = iOSTrait;
+
+            AssertOnPage(TimeSpan.FromSeconds(30));
 
             app.Screenshot("On " + this.GetType().Name);
         }
@@ -33,6 +37,23 @@ namespace XamarinCRM.UITest
         protected BasePage(IApp app, Platform platform, string androidTrait, string iOSTrait)
             : this(app, platform, x => x.Marked(androidTrait), x => x.Marked(iOSTrait))
         {
+        }
+
+        /// <summary>
+        /// Verifies that the trait is still present. Defaults to no wait.
+        /// </summary>
+        /// <param name="timeout">Time to wait before the assertion fails</param>
+        protected void AssertOnPage(TimeSpan? timeout = default(TimeSpan?))
+        {
+            if (Trait == null)
+                throw new NullReferenceException("Trait not set");
+
+            var message = "Unable to verify on page: " + this.GetType().Name;
+
+            if (timeout == null)
+                Assert.IsNotEmpty(app.Query(Trait), message);
+            else
+                Assert.DoesNotThrow(() => app.WaitForElement(Trait, timeout: timeout), message);
         }
     }
 }

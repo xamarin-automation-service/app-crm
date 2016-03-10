@@ -32,6 +32,9 @@ namespace XamarinCRM.UITest
             {
                 new SplashScreenPage(app, platform)
                         .ExitSplashScreen();
+
+//                new SplashScreenPage(app, platform)
+//                    .SkipSignIn();
             }
 
             //waiting for next screen to load
@@ -59,7 +62,7 @@ namespace XamarinCRM.UITest
         {
             if (platform == Platform.iOS)
                 // wipe the device keychain
-                app.TestServer.Post("/keychain");
+                app.TestServer.Post("/keychain", new object());
         }
             
         void LogIn()
@@ -75,12 +78,13 @@ namespace XamarinCRM.UITest
             }
 
             int userNumber = (deviceIndex == null) ? 0 : Int32.Parse(deviceIndex) % accounts.Count;
+            userNumber = (userNumber == 0) ? 1 : userNumber;
             if (userNumber >= accounts.Count)
                 throw new IndexOutOfRangeException($"Only enough logins for {accounts.Count} users, {userNumber} is out of range.");
 
             var user = accounts[userNumber][0];
             var password = accounts[userNumber][1];
-            
+
             new LoginPage(app, platform)
                 .LogInWithWorkCredentials(user, password);
 

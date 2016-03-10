@@ -38,6 +38,7 @@ namespace XamarinCRM.UITest
             app.WaitForElement("Phone", timeoutMessage: "Phone info not present");
             app.WaitForElement("Address", timeoutMessage: "Address info not present");
 
+            app.Screenshot("Information on Page Verified");
             return this;
         }
 

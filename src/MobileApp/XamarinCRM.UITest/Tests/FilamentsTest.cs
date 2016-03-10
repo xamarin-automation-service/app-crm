@@ -39,6 +39,8 @@ namespace XamarinCRM.UITest
 
             new ABSFilamentPage(app, platform)
                 .SelectColor(color);
+
+            new ProductDetailsPage(app, platform);
         }
 
         [Category("sanity")]

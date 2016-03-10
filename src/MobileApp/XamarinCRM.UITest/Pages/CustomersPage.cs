@@ -8,7 +8,7 @@ namespace XamarinCRM.UITest
         readonly Query FirstContact;
 
         public CustomersPage(IApp app, Platform platform)
-            : base(app, platform, "Customers", "Customers")
+            : base(app, platform, x => x.Marked("Customers"), x => x.Class("UITableViewCellContentView").Index(0))
         {
             if (OnAndroid)
                 FirstContact = x => x.Class("LabelRenderer").Index(0).Child(0);

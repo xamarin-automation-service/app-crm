@@ -16,7 +16,7 @@ namespace XamarinCRM.UITest
         readonly Query LeadsLoading = x => x.Marked("Loading leads data...");
 
         public SalesHomePage(IApp app, Platform platform)
-            : base(app, platform, "WEEKLY AVERAGE", "WEEKLY AVERAGE")
+            : base(app, platform, x => x.Marked("WEEKLY AVERAGE"), x => x.Class("SFChart"))
         {
             if (OnAndroid)
             {

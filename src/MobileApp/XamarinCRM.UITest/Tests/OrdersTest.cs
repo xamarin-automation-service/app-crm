@@ -44,6 +44,9 @@ namespace XamarinCRM.UITest
                 .ChangePrice(44)
                 .SaveAndExit();
             //      .changeDate();
+
+            new CustomerOrdersPage(app, platform);
+
         }
 
         [Test]
@@ -79,6 +82,8 @@ namespace XamarinCRM.UITest
             new CustomerOrderDetailsPage(app, platform)
                 .SaveAndExit();
             //      .changeDate();
+
+            new CustomerOrdersPage(app, platform);
 
         }
 

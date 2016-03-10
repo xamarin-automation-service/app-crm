@@ -42,6 +42,20 @@ namespace XamarinCRM.UITest
                 Save = x => x.Marked("Save");
                 ScrollPanel = x => x.Id("contentPanel");
                 OkButton = x => x.Id("button2");
+
+                RoleField = x => x.Marked("Role").Sibling();
+                FirstNameField = x => x.Marked("First Name").Sibling();
+                LastNameField = x => x.Marked("Last Name").Sibling();
+                PhoneField = x => x.Marked("Phone").Sibling();
+                EmailField = x => x.Marked("Email").Sibling();
+                AddressField = x => x.Marked("Address").Sibling();
+                PostalCodeField = x => x.Marked("Postal Code").Sibling();
+                CityField = x => x.Marked("City").Sibling();
+                StateField = x => x.Marked("State").Sibling();
+                CountryField = x => x.Marked("Country").Sibling();
+//                ContactList = x => x.Class("ListView");
+                Done = x => x.Marked("DONE");
+                Save = x => x.Marked("Save");
             }
             if (OniOS)
             {
@@ -171,8 +185,7 @@ namespace XamarinCRM.UITest
             string country
         )
         {
-            if (OniOS)
-            {
+            
                 app.Tap(RoleField);
                 app.EnterText(role);
                 app.PressEnter();
@@ -183,6 +196,10 @@ namespace XamarinCRM.UITest
                 app.EnterText(LastNameField, lastName);
                 app.PressEnter();
 
+                if(OnAndroid)
+                    app.ScrollDownTo("Contact");
+                if (OniOS)
+                app.ScrollDownTo("CONTACT");
                 app.EnterText(PhoneField, phone);
                 app.DismissKeyboard();
 
@@ -190,25 +207,31 @@ namespace XamarinCRM.UITest
                 app.PressEnter();
 
                 app.ScrollDownTo("Address");
+                app.Tap(AddressField);
                 app.EnterText(AddressField, address);
-                app.PressEnter();
+//                app.PressEnter();
+                app.DismissKeyboard();
 
                 app.ScrollDownTo("Postal Code");
+                app.Tap(PostalCodeField);
                 app.EnterText(PostalCodeField, postalCode);
                 app.DismissKeyboard();
 
                 app.ScrollDownTo("City");
+                app.Tap(CityField);
                 app.EnterText(CityField, city);
                 app.PressEnter();
 
                 app.ScrollDownTo("State");
+                app.Tap(StateField);
                 app.EnterText(StateField, state);
                 app.PressEnter();
 
                 app.ScrollDownTo("Country");
+                app.Tap(CountryField);
                 app.EnterText(CountryField, country);
                 app.PressEnter();
-            }
+
             return this;
         }
     }

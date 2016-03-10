@@ -8,7 +8,7 @@ APP_NAME = "Xamarin CRM"
 ANDROID_DIR = "../../src/MobileApp/XamarinCRM.Android"
 IOS_DIR = "../../src/MobileApp/XamarinCRM.iOS"
 TEST_DIR = "../../src/MobileApp/XamarinCRM.UITest"
-PACKAGE_DIR = "../../src/MobileApp/packages/Xamarin.UITest.1.2.0"
+PACKAGE_DIR = "../../src/MobileApp/packages/Xamarin.UITest.1.3.4"
 
 SLN_FILE = "../../src/MobileApp/XamarinCRM.sln"
 APK_FILE = "../../src/MobileApp/XamarinCRM.Android/bin/Release/com.xamarin.xamarincrm-Signed.apk"
@@ -18,8 +18,8 @@ DSYM_FILE = "../../src/MobileApp/XamarinCRM.iOS/bin/iPhone/Debug/XamarinCRMiOS.a
 # ANDROID_KEYSTORE = "debug.keystore"
 
 DEFAULT_SERIES = "master"
-DEFAULT_IOS_DEVICE_SET = "2f802e3f" # small set
-DEFAULT_ANDROID_DEVICE_SET = "fe5e138d" # small set
+DEFAULT_IOS_DEVICE_SET = "5b39aadc" # small set
+DEFAULT_ANDROID_DEVICE_SET = "45d64af2" # small set
 ### END
 
 task :default => ['build:android', 'build:ios', 'build:tests']
