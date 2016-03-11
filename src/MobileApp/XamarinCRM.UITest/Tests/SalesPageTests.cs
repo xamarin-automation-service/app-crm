@@ -73,9 +73,7 @@ namespace XamarinCRM.UITest
                 .AddNewLead();
 
             new LeadDetailsPage(app, platform)
-                .EnterLeadDetails(company, industry, size, stage);
-            
-            new LeadDetailsPage(app, platform)
+                .EnterLeadDetails(company, industry, size, stage)
                 .EnterLeadContact(role,
                 firstName, 
                 lastName, 

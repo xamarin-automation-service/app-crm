@@ -193,13 +193,17 @@ namespace XamarinCRM.UITest
                 app.EnterText(FirstNameField, firstName);
                 app.PressEnter();
 
+                app.ScrollDown();
                 app.EnterText(LastNameField, lastName);
                 app.PressEnter();
+
+                app.Screenshot("Details Entered Part 1");
 
                 if(OnAndroid)
                     app.ScrollDownTo("Contact");
                 if (OniOS)
                 app.ScrollDownTo("CONTACT");
+
                 app.EnterText(PhoneField, phone);
                 app.DismissKeyboard();
 
@@ -231,6 +235,8 @@ namespace XamarinCRM.UITest
                 app.Tap(CountryField);
                 app.EnterText(CountryField, country);
                 app.PressEnter();
+
+
 
             return this;
         }
