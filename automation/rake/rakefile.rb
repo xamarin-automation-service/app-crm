@@ -18,8 +18,8 @@ DSYM_FILE = "../../src/MobileApp/XamarinCRM.iOS/bin/iPhone/Debug/XamarinCRMiOS.a
 # ANDROID_KEYSTORE = "debug.keystore"
 
 DEFAULT_SERIES = "master"
-DEFAULT_IOS_DEVICE_SET = "5b39aadc" # small set
-DEFAULT_ANDROID_DEVICE_SET = "45d64af2" # small set
+DEFAULT_IOS_DEVICE_SET = "8e2a312f" # small set
+DEFAULT_ANDROID_DEVICE_SET = "9291c8dd" # small set
 ### END
 
 task :default => ['build:android', 'build:ios', 'build:tests']

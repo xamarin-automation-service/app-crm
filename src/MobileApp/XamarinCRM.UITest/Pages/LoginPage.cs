@@ -46,19 +46,21 @@ namespace XamarinCRM.UITest
 
         public void LogInWithWorkCredentials(string email, string password)
         {
+            app.WaitForElement(EmailField);
             app.Tap(EmailField);
             app.EnterText(email);
             app.Screenshot("Email entered");
 
-            Thread.Sleep(500);
+            Thread.Sleep(1000);
             app.PressEnter();
 
-            Thread.Sleep(500);
+            Thread.Sleep(1000);
+            app.WaitForElement(PasswordField);
             app.Tap(PasswordField);
             app.EnterText(password);
             app.Screenshot("Password entered");
 
-            Thread.Sleep(500);
+            Thread.Sleep(1000);
             app.Screenshot("Signing in");
             app.PressEnter();
         }
