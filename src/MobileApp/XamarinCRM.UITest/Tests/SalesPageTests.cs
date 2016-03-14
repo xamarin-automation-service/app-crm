@@ -31,7 +31,7 @@ namespace XamarinCRM.UITest
 //            }
         }
 
-        [Test]
+        [Test] 
         public void EditLead()
         {
             string company = "EDIT LEAD";
