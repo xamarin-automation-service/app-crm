@@ -125,10 +125,10 @@ namespace :build do
   # Only CRM
 	# def addMaptoManifest(xml_file)
 	#   xml_text = File.read(xml_file)
-  
+
 	#   newContent = xml_text.gsub("\t\t<meta-data android:name=\"com.google.android.maps.v2.API_KEY\" android:value=\"@string/GoogleMapsKey\" />\n",
 	#       "\t\t<meta-data android:name=\"com.google.android.maps.v2.API_KEY\" android:value=\"AIzaSyBmRuR-M2PV8bF_ljjAQBNzkzSDpmkStfI\" />\n")
-  
+
 	#   File.open(xml_file, "w"){|newFile| newFile.puts newContent}
 	# end
 end
@@ -159,7 +159,7 @@ namespace :submit do
     cmd += " --fixture #{ENV['FIXTURE']}" unless ENV['FIXTURE'].nil?
     cmd += " --async" if ENV['ASYNC'] == "true"
 
-    cmd += " #{extras}"
+    # cmd += " #{extras}"
 
     sh cmd
   end
